@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply bg-[#CBD5E5];
+  }
+  .personal {
+    @apply w-[30rem] h-[5rem] bg-blue-500 rounded-2xl text-[1.5rem] p-5 text-white;
+  }
+}
