@@ -42,12 +42,8 @@
   padding: 20px;
   overflow-y: auto;
   display: flex;
-}
-
-form {
-  display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 50px;
 }
 
 .view {
@@ -58,7 +54,7 @@ form {
   border: 1px solid #000;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 30px;
   overflow-y: auto;
   word-wrap: break-word;
 }
@@ -72,4 +68,33 @@ form {
   justify-content: center;
   align-items: center;
   column-gap: 10px;
+  word-wrap: break-word;
+}
+
+a {
+  color: #000;
+}
+
+.education-section {
+  margin-top: 20px;
+}
+
+.education-detail {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  width: 100%;
+  border: 0.001px solid gray;
+  opacity: 50%;
+  margin-block: 10px;
+}
+
+.form {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }

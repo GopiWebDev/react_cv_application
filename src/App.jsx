@@ -1,94 +1,45 @@
 import { useState } from 'react'
-import PersonalInfo from './components/PersonalInfo'
+import PersonalDetailsForm from './components/forms/PersonalDetailsForm'
+import Personal from './components/Personal'
+import Education from './components/Education'
 
 const App = () => {
-  const [name, setName] = useState('Jake Ryan')
-  const [contactNumber, setContactNumber] = useState('123-456-789')
-  const [contactMail, setContactMail] = useState('jake@su.edu')
-  const [linkedinProfile, setLinkedIn] = useState('linked.com/in/jake')
-  const [githubProfile, setGithubLink] = useState('github.com/jake')
-
-  const handleNameChange = (e) => {
-    e.preventDefault()
-    e.target.value ? setName(e.target.value) : setName('Jake Ryan')
-  }
-
-  const handleContactChange = (e) => {
-    e.preventDefault()
-    e.target.value
-      ? setContactNumber(e.target.value)
-      : setContactNumber('123-456-789')
-  }
-
-  const handleMailChange = (e) => {
-    e.preventDefault()
-    e.target.value
-      ? setContactMail(e.target.value)
-      : setContactMail('linked.com/in/jake')
-  }
-
-  const handleLinkedInChange = (e) => {
-    e.preventDefault()
-    e.target.value ? setLinkedIn(e.target.value) : setLinkedIn('jake@su.edu')
-  }
-
-  const handleGithubChange = (e) => {
-    e.preventDefault()
-    setGithubLink(e.target.value)
-    e.target.value
-      ? setGithubLink(e.target.value)
-      : setGithubLink('github.com/jake')
-  }
-
-  // const submitForm = (e) => {
-  //   e.preventDefault()
-  //   console.log(name, contactNumber)
-  // }
+  const [data, setData] = useState({
+    personal: {
+      name: 'Jake Ryan',
+      phone: '123-456-789',
+      email: 'jake@su.edu.in',
+      linkedin: 'jake',
+      github: 'jake',
+    },
+    education: [
+      {
+        universityName: 'Southwestern University',
+        major: 'Bachelor of Arts in Computer Science, Minor in Business',
+        location: 'Georgetown, TX',
+        startDate: 'Aug. 2018',
+        endDate: 'May. 2021',
+      },
+      {
+        universityName: 'Blinn College',
+        major: 'Associate’s in Liberal Arts',
+        location: 'Bryan, TX',
+        startDate: 'Aug. 2014',
+        endDate: 'May. 2018',
+      },
+    ],
+  })
 
   return (
-    <>
-      <div className='container'>
-        <div className='edit-section'>
-          <form action=''>
-            <input
-              type='text'
-              onChange={handleNameChange}
-              placeholder='Enter Your Name'
-            />
-            <input
-              type='number'
-              onChange={handleContactChange}
-              placeholder='Enter Your Contact Number'
-            />
-            <input
-              type='email'
-              onChange={handleMailChange}
-              placeholder='Enter Your Mail'
-            />
-            <input
-              type='text'
-              onChange={handleLinkedInChange}
-              placeholder='Enter Your LinkedIn'
-            />
-            <input
-              type='text'
-              onChange={handleGithubChange}
-              placeholder='Enter Your Github'
-            />
-            <input type='submit' />
-          </form>
-        </div>
-        <div className='view'>
-          <PersonalInfo
-            name={name}
-            contactNumber={contactNumber}
-            contactMail={contactMail}
-            linkedinProfile={linkedinProfile}
-            githubProfile={githubProfile}
-          />
-        </div>
+    <div className='container'>
+      <div className='edit-section'>
+        <PersonalDetailsForm setData={setData} />
       </div>
-    </>
+      <div className='view'>
+        <Personal data={data.personal} />
+        <Education data={data.education} />
+      </div>
+    </div>
   )
 }
 
