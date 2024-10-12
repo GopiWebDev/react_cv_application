@@ -1,12 +1,75 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Arial';
+  src: url('../src/assets/fonts/ARIAL.TTF');
+}
+
+@font-face {
+  font-family: 'Arial-Bold';
+  src: url('../src/assets/fonts/ARIALBD.TTF');
+}
 
 @layer components {
   body {
     @apply bg-[#CBD5E5];
   }
   .personal {
-    @apply w-[30rem] h-[5rem] bg-blue-500 rounded-2xl text-[1.5rem] p-5 text-white;
+    @apply w-[30rem] h-[5rem] bg-blue-500 rounded-2xl text-[1.5rem] p-4 text-white flex items-center;
   }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  border: 10px solid black;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-section {
+  flex: 1;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.view {
+  width: 40vw;
+  height: calc(40vw * 1.414);
+  max-width: 595px;
+  max-height: 842px;
+  border: 1px solid #000;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+
+.view h1 {
+  text-align: center;
+}
+
+.personal-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
 }

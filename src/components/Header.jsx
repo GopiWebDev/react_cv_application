@@ -6,7 +6,7 @@ const header = () => {
         <p className='text-[1.25rem]'>Create your professional resume.</p>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default header;
+export default header
