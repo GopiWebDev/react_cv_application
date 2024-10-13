@@ -1,11 +1,42 @@
+function formatDateRange([startDate, endDate]) {
+  const months = [
+    'Jan.',
+    'Feb.',
+    'Mar.',
+    'Apr.',
+    'May.',
+    'Jun.',
+    'Jul.',
+    'Aug.',
+    'Sep.',
+    'Oct.',
+    'Nov.',
+    'Dec.',
+  ]
+
+  // Convert the startDate and endDate strings into Date objects
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+
+  // Format the dates
+  const startMonth = months[start.getMonth()]
+  const startYear = start.getFullYear()
+  const endMonth = months[end.getMonth()]
+  const endYear = end.getFullYear()
+
+  return `${startMonth} ${startYear} - ${endMonth} ${endYear}`
+}
+
 const ExperienceData = ({ data }) => {
-  const { position, company, date, location, description } = data
+  const { position, company, startDate, endDate, location, description } = data
+
+  const formatDate = formatDateRange([startDate, endDate])
 
   return (
     <div className='experience-detail'>
       <div>
         <p>{position}</p>
-        <p>{date}</p>
+        <p>{formatDate}</p>
       </div>
 
       <div>
@@ -13,11 +44,11 @@ const ExperienceData = ({ data }) => {
         <p>{location}</p>
       </div>
 
-      <ul>
+      {/* <ul>
         {description.map((des) => (
           <li key={des}>{des}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   )
 }

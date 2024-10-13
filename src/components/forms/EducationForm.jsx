@@ -54,6 +54,7 @@ const EducationForm = ({ setData, data }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     const newEducation = {
       universityName,
       major,

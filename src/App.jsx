@@ -2,6 +2,7 @@ import { useState } from 'react'
 // Forms
 import PersonalDetailsForm from './components/forms/PersonalDetailsForm'
 import EducationForm from './components/forms/EducationForm'
+import ExperienceForm from './components/forms/ExperienceForm'
 // Preview Components
 import Personal from './components/Personal'
 import Education from './components/Education'
@@ -36,7 +37,8 @@ const App = () => {
       {
         company: 'Texas A&M University',
         position: 'Undergraduate Research Assistant',
-        date: 'June 2020 - Present',
+        startDate: 'June 2020',
+        endDate: 'Present',
         location: 'College Station, TX',
         description: [
           'Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems',
@@ -63,6 +65,7 @@ const App = () => {
       <div className='edit-section'>
         <PersonalDetailsForm setData={setData} />
         <EducationForm setData={setData} data={data.education} />
+        <ExperienceForm setData={setData} data={data.experiences} />
       </div>
       <div className='view'>
         <Personal data={data.personal} />
