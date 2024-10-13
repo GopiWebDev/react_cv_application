@@ -1,5 +1,8 @@
 import { useState } from 'react'
+// Forms
 import PersonalDetailsForm from './components/forms/PersonalDetailsForm'
+import EducationForm from './components/forms/EducationForm'
+// Preview Components
 import Personal from './components/Personal'
 import Education from './components/Education'
 
@@ -34,6 +37,7 @@ const App = () => {
     <div className='container'>
       <div className='edit-section'>
         <PersonalDetailsForm setData={setData} />
+        <EducationForm setData={setData} data={data.education} />
       </div>
       <div className='view'>
         <Personal data={data.personal} />

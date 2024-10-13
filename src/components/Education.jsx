@@ -1,5 +1,36 @@
+function formatDateRange([startDate, endDate]) {
+  const months = [
+    'Jan.',
+    'Feb.',
+    'Mar.',
+    'Apr.',
+    'May.',
+    'Jun.',
+    'Jul.',
+    'Aug.',
+    'Sep.',
+    'Oct.',
+    'Nov.',
+    'Dec.',
+  ]
+
+  // Convert the startDate and endDate strings into Date objects
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+
+  // Format the dates
+  const startMonth = months[start.getMonth()]
+  const startYear = start.getFullYear()
+  const endMonth = months[end.getMonth()]
+  const endYear = end.getFullYear()
+
+  return `${startMonth} ${startYear} - ${endMonth} ${endYear}`
+}
+
 const EducationData = ({ data }) => {
   const { universityName, major, location, startDate, endDate } = data
+
+  const formatDate = formatDateRange([startDate, endDate])
 
   return (
     <div className='education-detail'>
@@ -9,9 +40,7 @@ const EducationData = ({ data }) => {
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <p>{major}</p>
-        <p>
-          {startDate}-{endDate}
-        </p>
+        <p>{formatDate}</p>
       </div>
     </div>
   )
