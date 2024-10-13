@@ -98,3 +98,24 @@ a {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+
+.flex {
+  display: flex;
+  gap: 25px;
+}
+
+.experience-detail {
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-detail div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.experience-detail ul {
+  margin-left: 30px;
+}

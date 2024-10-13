@@ -5,6 +5,7 @@ import EducationForm from './components/forms/EducationForm'
 // Preview Components
 import Personal from './components/Personal'
 import Education from './components/Education'
+import Experience from './components/Experience'
 
 const App = () => {
   const [data, setData] = useState({
@@ -31,6 +32,30 @@ const App = () => {
         endDate: 'May. 2018',
       },
     ],
+    experiences: [
+      {
+        company: 'Texas A&M University',
+        position: 'Undergraduate Research Assistant',
+        date: 'June 2020 - Present',
+        location: 'College Station, TX',
+        description: [
+          'Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems',
+          'Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data',
+          'Explored ways to visualize GitHub collaboration in a classroom setting',
+        ],
+      },
+      {
+        position: 'Information Technology Support Specialist',
+        company: 'Southwestern University',
+        date: 'Sep. 2018 – Present',
+        location: 'Georgetown, TX',
+        description: [
+          'Communicate with managers to set up campus computers used on campus',
+          'Assess and troubleshoot computer problems brought by students, faculty and staff',
+          'Maintain upkeep of computers, classroom equipment, and 200 printers across campus',
+        ],
+      },
+    ],
   })
 
   return (
@@ -42,6 +67,7 @@ const App = () => {
       <div className='view'>
         <Personal data={data.personal} />
         <Education data={data.education} />
+        <Experience data={data.experiences} />
       </div>
     </div>
   )
