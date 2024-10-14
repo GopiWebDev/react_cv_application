@@ -5,6 +5,8 @@ import Personal from './components/Personal'
 import Education from './components/Education'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
+
 import EditSection from './components/EditSection'
 
 const App = () => {
@@ -82,6 +84,38 @@ const App = () => {
         repoLink: 'https://github.com',
       },
     ],
+    skills: {
+      languages: [
+        'Java',
+        'Python',
+        ' C/C++',
+        'SQL (Postgres)',
+        'JavaScript',
+        'HTML/CSS',
+        'R',
+      ],
+      frameworks: [
+        'React',
+        'Node.js',
+        'Flask',
+        'JUnit',
+        'WordPress',
+        'Material-UI',
+        'FastAPI',
+      ],
+      devTools: [
+        'Git',
+        'Docker',
+        'TravisCI',
+        ' Google Cloud Platform',
+        'VS Code',
+        'Visual Studio',
+        'PyCharm',
+        'IntelliJ',
+        'Eclipse',
+      ],
+      libraries: ['pandas', 'NumPy', 'Matplotlib'],
+    },
   })
 
   return (
@@ -92,6 +126,7 @@ const App = () => {
         <Education data={data.education} />
         <Experience data={data.experiences} />
         <Projects data={data.projects} />
+        <Skills data={data.skills} />
       </div>
     </div>
   )
