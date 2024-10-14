@@ -63,10 +63,19 @@ const ProjectsForm = ({ setData, data }) => {
     addProject(newProject)
   }
 
+  const deleteProject = (name) => {
+    setData((prev) => ({
+      ...prev,
+      projects: [...prev.projects].filter((project) => {
+        return project.name !== name
+      }),
+    }))
+  }
+
   return (
     <div>
       <h2>Projects</h2>
-      <div>
+      <div className='flex'>
         <form action='' className='form' onSubmit={handleSubmit}>
           <label htmlFor='name'>Name</label>
           <input
@@ -113,6 +122,16 @@ const ProjectsForm = ({ setData, data }) => {
           </span>
           <input type='submit' />
         </form>
+        <div>
+          {data.map((data) => {
+            return (
+              <div key={data.name}>
+                <p>{data.name}</p>
+                <button onClick={() => deleteProject(data.name)}>Delete</button>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
