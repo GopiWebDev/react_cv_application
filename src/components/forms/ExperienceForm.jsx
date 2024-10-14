@@ -6,6 +6,8 @@ const ExperienceForm = ({ setData, data }) => {
   const [location, setLocation] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
+  const [description, setDescription] = useState([])
+  const [inputValue, setInputValue] = useState('')
 
   const handleInputChange = (e) => {
     e.preventDefault()
@@ -27,19 +29,38 @@ const ExperienceForm = ({ setData, data }) => {
       case 'endDate':
         setEndDate(value)
         break
+      case 'descriptions':
+        setInputValue(value)
+        break
       default:
         break
+    }
+  }
+
+  const addDescription = () => {
+    if (inputValue.trim() !== '') {
+      setDescription((prevDescription) => [...prevDescription, inputValue])
+      setInputValue('')
     }
   }
 
   const addExperience = (newExperience) => {
     const { position, company, startDate, endDate, location } = newExperience
 
-    if (!position || !company || !startDate || !endDate || !location) return
+    if (!position || !company || !startDate || !location) return
 
     setData((prev) => ({
       ...prev,
       experiences: [...prev.experiences, newExperience],
+    }))
+  }
+
+  const deleteExperience = (position) => {
+    setData((prev) => ({
+      ...prev,
+      experiences: [...prev.experiences].filter((exp) => {
+        return exp.position !== position
+      }),
     }))
   }
 
@@ -52,6 +73,7 @@ const ExperienceForm = ({ setData, data }) => {
       startDate,
       endDate,
       location,
+      description,
     }
 
     addExperience(newExperience)
@@ -107,14 +129,24 @@ const ExperienceForm = ({ setData, data }) => {
             value={location}
           />
 
-          {/* <label htmlFor='descriptions'>Points</label>
-          <input
-            type='text'
-            name='descriptions'
-            id='descriptions'
-            onChange={handleInputChange}
-          /> */}
-
+          <label htmlFor='descriptions'>Description</label>
+          <span>
+            <input
+              type='text'
+              name='descriptions'
+              id='descriptions'
+              onChange={handleInputChange}
+              value={inputValue}
+            />
+            <button
+              onClick={addDescription}
+              type='button'
+              className='add-desc'
+              style={{ width: '20px', cursor: 'pointer' }}
+            >
+              +
+            </button>
+          </span>
           <input type='submit' value='Add Experience' />
         </form>
         <div>
@@ -122,7 +154,9 @@ const ExperienceForm = ({ setData, data }) => {
             return (
               <div key={data.position}>
                 <p>{data.position}</p>
-                <button>Delete</button>
+                <button onClick={() => deleteExperience(data.position)}>
+                  Delete
+                </button>
               </div>
             )
           })}

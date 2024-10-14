@@ -37,8 +37,8 @@ const App = () => {
       {
         company: 'Texas A&M University',
         position: 'Undergraduate Research Assistant',
-        startDate: 'June 2020',
-        endDate: 'Present',
+        startDate: '01-06-2020',
+        endDate: '',
         location: 'College Station, TX',
         description: [
           'Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems',
@@ -49,7 +49,8 @@ const App = () => {
       {
         position: 'Information Technology Support Specialist',
         company: 'Southwestern University',
-        date: 'Sep. 2018 – Present',
+        startDate: '01-06-2020',
+        endDate: '',
         location: 'Georgetown, TX',
         description: [
           'Communicate with managers to set up campus computers used on campus',
