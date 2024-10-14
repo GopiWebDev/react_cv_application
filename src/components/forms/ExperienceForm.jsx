@@ -141,7 +141,6 @@ const ExperienceForm = ({ setData, data }) => {
             <button
               onClick={addDescription}
               type='button'
-              className='add-desc'
               style={{ width: '20px', cursor: 'pointer' }}
             >
               +

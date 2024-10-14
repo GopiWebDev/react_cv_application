@@ -1,12 +1,11 @@
 import { useState } from 'react'
-// Forms
-import PersonalDetailsForm from './components/forms/PersonalDetailsForm'
-import EducationForm from './components/forms/EducationForm'
-import ExperienceForm from './components/forms/ExperienceForm'
+
 // Preview Components
 import Personal from './components/Personal'
 import Education from './components/Education'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
+import EditSection from './components/EditSection'
 
 const App = () => {
   const [data, setData] = useState({
@@ -59,19 +58,40 @@ const App = () => {
         ],
       },
     ],
+    projects: [
+      {
+        name: 'Gitlytics',
+        tools: ['Python', 'Flask', 'React', 'PostgreSQL', 'Docker'],
+        description: [
+          'Developed a full-stack web application using with Flask serving a REST API with React as the frontend',
+          'Implemented GitHub OAuth to get data from user’s repositories',
+          'Visualized GitHub data to show collaboration',
+          'Used Celery and Redis for asynchronous tasks',
+        ],
+        repoLink: 'https://github.com',
+      },
+      {
+        name: 'Simple Paintball',
+        tools: ['Spigot API', 'Java', 'Maven', 'TravisCI', 'Git'],
+        description: [
+          'Developed a Minecraft server plugin to entertain kids during free time for a previous job',
+          'Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review',
+          'Implemented continuous delivery using TravisCI to build the plugin upon new a release',
+          'Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin',
+        ],
+        repoLink: 'https://github.com',
+      },
+    ],
   })
 
   return (
     <div className='container'>
-      <div className='edit-section'>
-        <PersonalDetailsForm setData={setData} />
-        <EducationForm setData={setData} data={data.education} />
-        <ExperienceForm setData={setData} data={data.experiences} />
-      </div>
+      <EditSection data={data} setData={setData} />
       <div className='view'>
         <Personal data={data.personal} />
         <Education data={data.education} />
         <Experience data={data.experiences} />
+        <Projects data={data.projects} />
       </div>
     </div>
   )

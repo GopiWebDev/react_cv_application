@@ -40,7 +40,7 @@ const EducationData = ({ data }) => {
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <p>{major}</p>
-        <p>{formatDate}</p>
+        <p style={{ width: '150px' }}>{formatDate}</p>
       </div>
     </div>
   )
