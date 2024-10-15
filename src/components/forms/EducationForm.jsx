@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 const EducationForm = ({ setData, data }) => {
@@ -78,6 +79,7 @@ const EducationForm = ({ setData, data }) => {
             id='universityName'
             onChange={handleInputChange}
             value={universityName}
+            required
           />
           <label htmlFor='major'>Course Name</label>
           <input
@@ -86,6 +88,7 @@ const EducationForm = ({ setData, data }) => {
             id='major'
             onChange={handleInputChange}
             value={major}
+            required
           />
           <label htmlFor='location'>Location</label>
           <input
@@ -94,6 +97,7 @@ const EducationForm = ({ setData, data }) => {
             id='location'
             onChange={handleInputChange}
             value={location}
+            required
           />
 
           <label htmlFor='startDate'>Start Date</label>
@@ -103,6 +107,7 @@ const EducationForm = ({ setData, data }) => {
             id='startDate'
             onChange={handleInputChange}
             value={startDate}
+            required
           />
           <label htmlFor='endDate'>End Date</label>
           <input
@@ -111,6 +116,7 @@ const EducationForm = ({ setData, data }) => {
             id='endDate'
             onChange={handleInputChange}
             value={endDate}
+            required
           />
 
           <input type='submit' value='Add Education' />

@@ -3,21 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Arial';
-  src: url('../src/assets/fonts/ARIAL.TTF');
+  font-family: 'CMU';
+  src: url('../src/assets/fonts/cmu.ttf');
 }
 
 @font-face {
-  font-family: 'Arial-Bold';
-  src: url('../src/assets/fonts/ARIALBD.TTF');
-}
+  font-family: 'CMU_BOLD';
+  src: url('../src/assets/fonts/cmu_bold.ttf');
+} */
 
-@layer components {
-  body {
-    @apply bg-[#CBD5E5];
-  }
-  .personal {
-    @apply w-[30rem] h-[5rem] bg-blue-500 rounded-2xl text-[1.5rem] p-4 text-white flex items-center;
+/* @layer components {
+  * {
+    @apply m-0 p-0 box-border font-CMU;
   }
 } */
 

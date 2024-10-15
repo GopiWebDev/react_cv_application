@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 const ExperienceForm = ({ setData, data }) => {
@@ -45,7 +46,7 @@ const ExperienceForm = ({ setData, data }) => {
   }
 
   const addExperience = (newExperience) => {
-    const { position, company, startDate, endDate, location } = newExperience
+    const { position, company, startDate, location } = newExperience
 
     if (!position || !company || !startDate || !location) return
 
@@ -79,6 +80,12 @@ const ExperienceForm = ({ setData, data }) => {
     addExperience(newExperience)
   }
 
+  const deleteDescription = (name) => {
+    setDescription((prevDescription) =>
+      prevDescription.filter((des) => des !== name)
+    )
+  }
+
   return (
     <div>
       <h2 style={{ margin: '30px 0' }}>Experience</h2>
@@ -91,6 +98,7 @@ const ExperienceForm = ({ setData, data }) => {
             id='position'
             onChange={handleInputChange}
             value={position}
+            required
           />
 
           <label htmlFor='company'>Company</label>
@@ -100,6 +108,7 @@ const ExperienceForm = ({ setData, data }) => {
             id='company'
             onChange={handleInputChange}
             value={company}
+            required
           />
 
           <label htmlFor='startDate'>Start Date</label>
@@ -109,6 +118,7 @@ const ExperienceForm = ({ setData, data }) => {
             id='startDate'
             onChange={handleInputChange}
             value={startDate}
+            required
           />
 
           <label htmlFor='endDate'>End Date</label>
@@ -127,9 +137,34 @@ const ExperienceForm = ({ setData, data }) => {
             id='location'
             onChange={handleInputChange}
             value={location}
+            required
           />
 
           <label htmlFor='descriptions'>Description</label>
+          {description.length > 0 ? (
+            <div>
+              <h3>Added Descriptions</h3>
+              <ul>
+                {description &&
+                  description.map((desc) => {
+                    return (
+                      <div key={desc}>
+                        <li>{desc}</li>
+                        <button
+                          type='button'
+                          onClick={() => deleteDescription(desc)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )
+                  })}
+              </ul>
+            </div>
+          ) : (
+            ''
+          )}
+
           <span>
             <input
               type='text'
@@ -146,6 +181,7 @@ const ExperienceForm = ({ setData, data }) => {
               +
             </button>
           </span>
+
           <input type='submit' value='Add Experience' />
         </form>
         <div>

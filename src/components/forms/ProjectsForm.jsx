@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 const ProjectsForm = ({ setData, data }) => {
@@ -72,6 +73,16 @@ const ProjectsForm = ({ setData, data }) => {
     }))
   }
 
+  const deleteTool = (tool) => {
+    setTools((prevTools) => prevTools.filter((t) => t !== tool))
+  }
+
+  const deleteDescription = (name) => {
+    setDescription((prevDescription) =>
+      prevDescription.filter((des) => des !== name)
+    )
+  }
+
   return (
     <div>
       <h2>Projects</h2>
@@ -83,9 +94,30 @@ const ProjectsForm = ({ setData, data }) => {
             type='text'
             name='name'
             id='name'
+            required
           />
 
           <label htmlFor='tools'>Tech Stack</label>
+          {tools.length > 0 ? (
+            <div>
+              <h3>Added Stacks</h3>
+              <ul>
+                {tools &&
+                  tools.map((tool) => {
+                    return (
+                      <div key={tool}>
+                        <li>{tool}</li>
+                        <button type='button' onClick={() => deleteTool(tool)}>
+                          Delete
+                        </button>
+                      </div>
+                    )
+                  })}
+              </ul>
+            </div>
+          ) : (
+            ''
+          )}
           <span>
             <input
               type='text'
@@ -104,6 +136,29 @@ const ProjectsForm = ({ setData, data }) => {
           </span>
 
           <label htmlFor='descriptions'>Description</label>
+          {description.length > 0 ? (
+            <div>
+              <h3>Added Descriptions</h3>
+              <ul>
+                {description &&
+                  description.map((desc) => {
+                    return (
+                      <div key={desc}>
+                        <li>{desc}</li>
+                        <button
+                          type='button'
+                          onClick={() => deleteDescription(desc)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )
+                  })}
+              </ul>
+            </div>
+          ) : (
+            ''
+          )}
           <span>
             <input
               type='text'

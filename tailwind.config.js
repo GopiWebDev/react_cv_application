@@ -3,11 +3,10 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      arial: ['Arial', 'sans-serif'],
-      arialBold: ['Arial-Bold', 'sans-serif'],
+      CMU: ['CMU', 'sans-serif'],
+      CMU_BOLD: ['CMU_BOLD', 'sans-serif'],
     },
     extend: {},
   },
   plugins: [],
-};
-
+}
