@@ -4,6 +4,7 @@ import PersonalDetailsForm from '../components/forms/PersonalDetailsForm'
 import EducationForm from '../components/forms/EducationForm'
 import ExperienceForm from '../components/forms/ExperienceForm'
 import ProjectsForm from './forms/ProjectsForm'
+import SkillsForm from './forms/SkillsForm'
 
 const EditSection = ({ data, setData }) => {
   const [selectedForm, setSelectedForm] = useState('personal')
@@ -54,6 +55,16 @@ const EditSection = ({ data, setData }) => {
           />
           Project
         </label>
+
+        <label>
+          <input
+            type='radio'
+            value='skills'
+            checked={selectedForm === 'skills'}
+            onChange={handleFormChange}
+          />
+          Skills
+        </label>
       </div>
 
       <div>
@@ -68,6 +79,9 @@ const EditSection = ({ data, setData }) => {
         )}
         {selectedForm === 'projects' && (
           <ProjectsForm setData={setData} data={data.projects} />
+        )}
+        {selectedForm === 'skills' && (
+          <SkillsForm setData={setData} data={data.skills} />
         )}
       </div>
     </div>

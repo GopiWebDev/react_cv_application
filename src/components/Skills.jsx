@@ -4,7 +4,6 @@ const SkillData = ({ data }) => {
   return (
     <div className='skill-data'>
       <p>
-        <h4>Languages</h4> : {'  '}
         {languages &&
           languages.map((lang) => {
             return <span key={lang}>{lang}</span>
@@ -12,7 +11,6 @@ const SkillData = ({ data }) => {
       </p>
 
       <p>
-        <h4>Frameworks</h4> : {'  '}
         {frameworks &&
           frameworks.map((fram) => {
             return <span key={fram}>{fram}</span>
@@ -20,7 +18,6 @@ const SkillData = ({ data }) => {
       </p>
 
       <p>
-        <h4>DevTools</h4> : {'  '}
         {devTools &&
           devTools.map((tool) => {
             return <span key={tool}>{tool}</span>
@@ -28,8 +25,7 @@ const SkillData = ({ data }) => {
       </p>
 
       <p>
-        <h4>Libraries</h4> : {'  '}
-        {libraries &&
+          {libraries &&
           libraries.map((lib) => {
             return <span key={lib}>{lib}</span>
           })}
