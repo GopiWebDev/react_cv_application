@@ -1,13 +1,7 @@
 import { useState } from 'react'
 
-// Preview Components
-import Personal from './components/Personal'
-import Education from './components/Education'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Skills from './components/Skills'
-
-// Edit section
+import Header from './components/Header'
+import ViewSection from './components/ViewSection'
 import EditSection from './components/EditSection'
 
 const App = () => {
@@ -120,14 +114,13 @@ const App = () => {
   })
 
   return (
-    <div className='container'>
-      <EditSection data={data} setData={setData} />
-      <div className='view'>
-        <Personal data={data.personal} />
-        <Education data={data.education} />
-        <Experience data={data.experiences} />
-        <Projects data={data.projects} />
-        <Skills data={data.skills} />
+    <div className=' w-full '>
+      <div className='wrapper px-[100px] max-w-[1440px] mx-auto'>
+        <Header />
+        <main className='flex mt-[3.25rem] justify-between overflow-hidden mb-[5rem]'>
+          <EditSection data={data} setData={setData} />
+          <ViewSection data={data} />
+        </main>
       </div>
     </div>
   )

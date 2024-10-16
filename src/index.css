@@ -1,4 +1,4 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -10,21 +10,48 @@
 @font-face {
   font-family: 'CMU_BOLD';
   src: url('../src/assets/fonts/cmu_bold.ttf');
-} */
-
-/* @layer components {
-  * {
-    @apply m-0 p-0 box-border font-CMU;
-  }
-} */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
-.container {
+@font-face {
+  font-family: 'Nordique';
+  src: url('../src/assets/fonts/Nordique.ttf');
+}
+
+@layer components {
+  body {
+    @apply bg-[#202020];
+  }
+
+  .view-section {
+    @apply border border-solid w-[36rem] h-[50.9375rem] bg-white;
+  }
+
+  .navbar nav {
+    @apply mt-2 cursor-pointer;
+  }
+
+  nav:hover {
+    @apply text-[#4d4d4d];
+  }
+
+  .form {
+    @apply grid grid-cols-[repeat(2,1fr)] mt-[2.5rem] gap-[2.25rem] text-white;
+  }
+
+  .form label {
+    @apply text-[1.875rem] text-right;
+  }
+
+  .form input {
+    @apply w-[16.875rem] h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] ml-[2.5rem] pl-3 pb-3;
+  }
+
+  .form input::placeholder {
+    @apply text-[#8C8C8C];
+  }
+}
+
+/* * .container {
   border: 10px solid black;
   min-height: 100vh;
   padding: 20px;
@@ -119,4 +146,4 @@ a {
 
 .project-detail {
   margin-bottom: 10px;
-}
+} */

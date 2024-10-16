@@ -14,8 +14,16 @@ const EditSection = ({ data, setData }) => {
   }
 
   return (
-    <div className='edit-section'>
-      <div>
+    <div className='edit-section w-[37.3125rem] bg-[#2E2E2E] font-Nordique rounded-[3.125rem] px-[2.5rem]'>
+      <div className='navbar w-[33rem] h-[3.75rem] bg-[#D9D9D9] flex justify-evenly text-[1.1rem] mx-auto mt-[2.19rem] rounded-[1.5rem]'>
+        <nav>Personal</nav>
+        <nav>education</nav>
+        <nav>experience</nav>
+        <nav>projects</nav>
+        <nav>skills</nav>
+      </div>
+      <PersonalDetailsForm setData={setData} />
+      {/* <div>
         <label>
           <input
             type='radio'
@@ -33,7 +41,7 @@ const EditSection = ({ data, setData }) => {
             checked={selectedForm === 'education'}
             onChange={handleFormChange}
           />
-          Education
+          education
         </label>
 
         <label>
@@ -43,7 +51,7 @@ const EditSection = ({ data, setData }) => {
             checked={selectedForm === 'experience'}
             onChange={handleFormChange}
           />
-          Experience
+          experience
         </label>
 
         <label>
@@ -53,7 +61,7 @@ const EditSection = ({ data, setData }) => {
             checked={selectedForm === 'projects'}
             onChange={handleFormChange}
           />
-          Project
+          project
         </label>
 
         <label>
@@ -63,11 +71,11 @@ const EditSection = ({ data, setData }) => {
             checked={selectedForm === 'skills'}
             onChange={handleFormChange}
           />
-          Skills
+          skills
         </label>
-      </div>
+      </div> */}
 
-      <div>
+      {/* <div>
         {selectedForm === 'personal' && (
           <PersonalDetailsForm setData={setData} />
         )}
@@ -83,7 +91,7 @@ const EditSection = ({ data, setData }) => {
         {selectedForm === 'skills' && (
           <SkillsForm setData={setData} data={data.skills} />
         )}
-      </div>
+      </div> */}
     </div>
   )
 }
