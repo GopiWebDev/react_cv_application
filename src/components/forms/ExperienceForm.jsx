@@ -87,117 +87,122 @@ const ExperienceForm = ({ setData, data }) => {
   }
 
   return (
-    <div>
-      <h2 style={{ margin: '30px 0' }}>Experience</h2>
-      <div className='flex'>
-        <form action='' className='form' onSubmit={handleSubmit}>
-          <label htmlFor='position'>Position</label>
+    <>
+      <form action='' className='form' onSubmit={handleSubmit}>
+        <label htmlFor='position'>Position*</label>
+        <input
+          type='text'
+          name='position'
+          id='position'
+          onChange={handleInputChange}
+          value={position}
+          required
+          placeholder='title of position'
+        />
+
+        <label htmlFor='company'>Company*</label>
+        <input
+          type='text'
+          name='company'
+          id='company'
+          onChange={handleInputChange}
+          value={company}
+          required
+          placeholder='name of company'
+        />
+
+        <label htmlFor='startDate'>Start Date*</label>
+        <input
+          type='date'
+          name='startDate'
+          id='startDate'
+          onChange={handleInputChange}
+          value={startDate}
+          required
+        />
+
+        <label htmlFor='endDate'>End Date</label>
+        <input
+          type='date'
+          name='endDate'
+          id='endDate'
+          onChange={handleInputChange}
+          value={endDate}
+        />
+
+        <label htmlFor='location'>Location*</label>
+        <input
+          type='text'
+          name='location'
+          id='location'
+          onChange={handleInputChange}
+          value={location}
+          required
+          placeholder='location of company'
+        />
+
+        <label htmlFor='descriptions'>Descriptions*</label>
+        <span>
           <input
+            className='input-with-btn'
             type='text'
-            name='position'
-            id='position'
+            name='descriptions'
+            id='descriptions'
             onChange={handleInputChange}
-            value={position}
-            required
+            value={inputValue}
+            placeholder='add one by one'
           />
+          <button onClick={addDescription} type='button'>
+            +
+          </button>
+        </span>
 
-          <label htmlFor='company'>Company</label>
-          <input
-            type='text'
-            name='company'
-            id='company'
-            onChange={handleInputChange}
-            value={company}
-            required
-          />
-
-          <label htmlFor='startDate'>Start Date</label>
-          <input
-            type='date'
-            name='startDate'
-            id='startDate'
-            onChange={handleInputChange}
-            value={startDate}
-            required
-          />
-
-          <label htmlFor='endDate'>End Date</label>
-          <input
-            type='date'
-            name='endDate'
-            id='endDate'
-            onChange={handleInputChange}
-            value={endDate}
-          />
-
-          <label htmlFor='location'>Location</label>
-          <input
-            type='text'
-            name='location'
-            id='location'
-            onChange={handleInputChange}
-            value={location}
-            required
-          />
-
-          <label htmlFor='descriptions'>Description</label>
-          {description.length > 0 ? (
-            <div>
-              <h3>Added Descriptions</h3>
-              <ul>
-                {description &&
-                  description.map((desc) => {
-                    return (
-                      <div key={desc}>
-                        <li>{desc}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteDescription(desc)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-
-          <span>
-            <input
-              type='text'
-              name='descriptions'
-              id='descriptions'
-              onChange={handleInputChange}
-              value={inputValue}
-            />
-            <button
-              onClick={addDescription}
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-            >
-              +
-            </button>
-          </span>
-
+        <div className='button-div'>
           <input type='submit' value='Add Experience' />
-        </form>
-        <div>
-          {data.map((data) => {
-            return (
-              <div key={data.position}>
-                <p>{data.position}</p>
-                <button onClick={() => deleteExperience(data.position)}>
-                  Delete
-                </button>
-              </div>
-            )
-          })}
         </div>
+      </form>
+      <div>
+        {data.length > 0 && (
+          <div className='existing-data'>
+            <p>All Positions</p>
+            {data.map((data) => {
+              return (
+                <div key={data.position}>
+                  <p>{data.position}</p>
+                  <button onClick={() => deleteExperience(data.position)}>
+                    Delete
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        )}
+
+        {description.length > 0 ? (
+          <div className='existing-data'>
+            <p>Added Descriptions</p>
+            <ul>
+              {description &&
+                description.map((desc) => {
+                  return (
+                    <div key={desc}>
+                      <li>{desc}</li>
+                      <button
+                        type='button'
+                        onClick={() => deleteDescription(desc)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
-    </div>
+    </>
   )
 }
 

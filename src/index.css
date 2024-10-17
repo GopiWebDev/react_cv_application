@@ -88,7 +88,7 @@
   }
 
   .existing-data {
-    @apply w-[33rem] bg-[#D9D9D9] text-[1rem] mx-auto mt-[1.5rem] rounded-[1rem] flex flex-col items-center gap-2 py-2;
+    @apply w-[33rem] bg-[#D9D9D9] text-[1rem] mx-auto mt-[1.5rem] rounded-[1rem] flex flex-col items-center gap-2 py-2 px-4;
   }
 
   .existing-data div {
@@ -101,5 +101,17 @@
 
   .existing-data div button {
     @apply text-red-700;
+  }
+
+  .form span {
+    @apply flex items-center;
+  }
+
+  .form span .input-with-btn {
+    @apply w-[80%] rounded-r-none;
+  }
+
+  .form span button {
+    @apply text-[2rem] w-[20%] bg-blue-500 rounded-[0.625rem] rounded-l-none;
   }
 }
