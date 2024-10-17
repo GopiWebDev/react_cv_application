@@ -10,11 +10,8 @@ const PersonalDetailsForm = ({ setData }) => {
 
   return (
     <div className='personal-edit'>
-      <h2 className='text-[2rem] mt-[2.5rem] text-white flex justify-between'>
-        Personal details <span className='text-[1rem]'>*required</span>
-      </h2>
       <form action='' className='form'>
-        <label htmlFor='name'>full name*</label>
+        <label htmlFor='name'>Full name*</label>
         <input
           type='text'
           name='name'
@@ -23,7 +20,7 @@ const PersonalDetailsForm = ({ setData }) => {
           placeholder='enter your name'
         />
 
-        <label htmlFor='phone'>phone*</label>
+        <label htmlFor='phone'>Phone*</label>
         <input
           type='tel'
           name='phone'
@@ -32,7 +29,7 @@ const PersonalDetailsForm = ({ setData }) => {
           placeholder='enter your phone number'
         />
 
-        <label htmlFor='email'>email*</label>
+        <label htmlFor='email'>Email*</label>
         <input
           type='email'
           name='email'
@@ -41,7 +38,7 @@ const PersonalDetailsForm = ({ setData }) => {
           placeholder='enter your email'
         />
 
-        <label htmlFor='linkedin'>linkedin*</label>
+        <label htmlFor='linkedin'>Linkedin*</label>
         <input
           type='text'
           name='linkedin'
@@ -50,7 +47,7 @@ const PersonalDetailsForm = ({ setData }) => {
           placeholder='enter your @username'
         />
 
-        <label htmlFor='github'>github*</label>
+        <label htmlFor='github'>Github*</label>
         <input
           type='text'
           name='github'

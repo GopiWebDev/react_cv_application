@@ -13,8 +13,33 @@
 }
 
 @font-face {
-  font-family: 'Nordique';
-  src: url('../src/assets/fonts/Nordique.ttf');
+  font-family: 'Inter-regular';
+  src: url('../src/assets/fonts/inter-regular.woff2');
+}
+
+@font-face {
+  font-family: 'Inter-medium';
+  src: url('../src/assets/fonts/inter-medium.woff2');
+}
+
+@font-face {
+  font-family: 'Inter-semibold';
+  src: url('../src/assets/fonts/inter-semibold.woff2');
+}
+
+@font-face {
+  font-family: 'Inter-bold';
+  src: url('../src/assets/fonts/inter-bold.woff2');
+}
+
+@font-face {
+  font-family: 'Inter-extrabold';
+  src: url('../src/assets/fonts/inter-extrabold.woff2');
+}
+
+@font-face {
+  font-family: 'Inter-black';
+  src: url('../src/assets/fonts/inter-black.woff2');
 }
 
 @layer components {
@@ -27,7 +52,7 @@
   }
 
   .navbar nav {
-    @apply mt-2 cursor-pointer;
+    @apply cursor-pointer;
   }
 
   nav:hover {
@@ -35,15 +60,15 @@
   }
 
   .form {
-    @apply grid grid-cols-[repeat(2,1fr)] mt-[2.5rem] gap-[2.25rem] text-white;
+    @apply grid grid-cols-[repeat(2,1fr)] mt-[6.25rem] gap-[2.25rem] text-white;
   }
 
   .form label {
-    @apply text-[1.875rem] text-right;
+    @apply text-[1.875rem] text-right font-Inter_regular;
   }
 
   .form input {
-    @apply w-[16.875rem] h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] ml-[2.5rem] pl-3 pb-3;
+    @apply w-[16.875rem] h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] ml-[2.5rem] pl-3;
   }
 
   .form input::placeholder {
