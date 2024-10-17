@@ -157,36 +157,15 @@ const ExperienceForm = ({ setData, data }) => {
           </button>
         </span>
 
-        <div className='button-div'>
-          <input type='submit' value='Add Experience' />
-        </div>
-      </form>
-      <div>
-        {data.length > 0 && (
-          <div className='existing-data'>
-            <p>All Positions</p>
-            {data.map((data) => {
-              return (
-                <div key={data.position}>
-                  <p>{data.position}</p>
-                  <button onClick={() => deleteExperience(data.position)}>
-                    Delete
-                  </button>
-                </div>
-              )
-            })}
-          </div>
-        )}
-
         {description.length > 0 ? (
-          <div className='existing-data'>
-            <p>Added Descriptions</p>
-            <ul>
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Descriptions</h4>
+            <ul className='my-3'>
               {description &&
-                description.map((desc) => {
+                description.map((desc, i) => {
                   return (
-                    <div key={desc}>
-                      <li>{desc}</li>
+                    <div key={`${desc}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${desc}`}</li>
                       <button
                         type='button'
                         onClick={() => deleteDescription(desc)}
@@ -200,6 +179,27 @@ const ExperienceForm = ({ setData, data }) => {
           </div>
         ) : (
           ''
+        )}
+  
+        <div className='button-div'>
+          <input type='submit' value='Add Experience' />
+        </div>
+      </form>
+      <div>
+        {data.length > 0 && (
+          <div className='existing-data'>
+            <h4>All Positions</h4>
+            {data.map((data) => {
+              return (
+                <div key={data.position}>
+                  <p>{data.position}</p>
+                  <button onClick={() => deleteExperience(data.position)}>
+                    Delete
+                  </button>
+                </div>
+              )
+            })}
+          </div>
         )}
       </div>
     </>

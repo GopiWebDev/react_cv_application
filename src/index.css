@@ -64,7 +64,7 @@
   }
 
   .form input {
-    @apply h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] px-3;
+    @apply h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] px-3 outline-none;
   }
 
   .form input::placeholder {
@@ -113,5 +113,17 @@
 
   .form span button {
     @apply text-[2rem] w-[20%] bg-blue-500 rounded-[0.625rem] rounded-l-none;
+  }
+
+  .descriptions {
+    @apply col-span-2 px-5;
+  }
+
+  .descriptions li {
+    @apply max-w-[22rem] break-words;
+  }
+
+  .descriptions button {
+    @apply text-red-200;
   }
 }
