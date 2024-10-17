@@ -180,7 +180,7 @@ const ExperienceForm = ({ setData, data }) => {
         ) : (
           ''
         )}
-  
+
         <div className='button-div'>
           <input type='submit' value='Add Experience' />
         </div>

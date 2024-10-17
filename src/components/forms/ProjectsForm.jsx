@@ -84,111 +84,108 @@ const ProjectsForm = ({ setData, data }) => {
   }
 
   return (
-    <div>
-      <h2>Projects</h2>
-      <div className='flex'>
-        <form action='' className='form' onSubmit={handleSubmit}>
-          <label htmlFor='name'>Name</label>
+    <>
+      <form action='' className='form' onSubmit={handleSubmit}>
+        <label htmlFor='name'>Name*</label>
+        <input
+          onChange={handleInputChange}
+          type='text'
+          name='name'
+          id='name'
+          required
+          placeholder='name of the project'
+        />
+
+        <label htmlFor='tools'>Tech Stack*</label>
+        {tools.length > 0 ? (
+          <div>
+            <h3>Added Stacks</h3>
+            <ul>
+              {tools &&
+                tools.map((tool) => {
+                  return (
+                    <div key={tool}>
+                      <li>{tool}</li>
+                      <button type='button' onClick={() => deleteTool(tool)}>
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        ) : (
+          ''
+        )}
+        <span>
           <input
-            onChange={handleInputChange}
+            className='input-with-btn'
             type='text'
-            name='name'
-            id='name'
-            required
+            name='tools'
+            id='tools'
+            onChange={handleInputChange}
+            value={toolsInput}
+            placeholder='add one by one'
           />
+          <button onClick={addTools} type='button'>
+            +
+          </button>
+        </span>
 
-          <label htmlFor='tools'>Tech Stack</label>
-          {tools.length > 0 ? (
-            <div>
-              <h3>Added Stacks</h3>
-              <ul>
-                {tools &&
-                  tools.map((tool) => {
-                    return (
-                      <div key={tool}>
-                        <li>{tool}</li>
-                        <button type='button' onClick={() => deleteTool(tool)}>
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='tools'
-              id='tools'
-              onChange={handleInputChange}
-              value={toolsInput}
-            />
-            <button
-              onClick={addTools}
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-            >
-              +
-            </button>
-          </span>
+        <label htmlFor='descriptions'>Descriptions*</label>
+        <span>
+          <input
+            className='input-with-btn'
+            type='text'
+            name='descriptions'
+            id='descriptions'
+            onChange={handleInputChange}
+            value={inputValue}
+            placeholder='add one by one'
+          />
+          <button onClick={addDescription} type='button'>
+            +
+          </button>
+        </span>
 
-          <label htmlFor='descriptions'>Description</label>
-          {description.length > 0 ? (
-            <div>
-              <h3>Added Descriptions</h3>
-              <ul>
-                {description &&
-                  description.map((desc) => {
-                    return (
-                      <div key={desc}>
-                        <li>{desc}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteDescription(desc)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='descriptions'
-              id='descriptions'
-              onChange={handleInputChange}
-              value={inputValue}
-            />
-            <button
-              onClick={addDescription}
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-            >
-              +
-            </button>
-          </span>
-          <input type='submit' />
-        </form>
-        <div>
-          {data.map((data) => {
-            return (
-              <div key={data.name}>
-                <p>{data.name}</p>
-                <button onClick={() => deleteProject(data.name)}>Delete</button>
-              </div>
-            )
-          })}
+        {description.length > 0 ? (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Descriptions</h4>
+            <ul className='my-3'>
+              {description &&
+                description.map((desc, i) => {
+                  return (
+                    <div key={`${desc}-${i}`} className='flex justify-between'>
+                      <li>{`${i}. ${desc}`}</li>
+                      <button
+                        type='button'
+                        onClick={() => deleteDescription(desc)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        ) : (
+          ''
+        )}
+        <div className='button-div'>
+          <input type='submit' value='Add Project' />
         </div>
+      </form>
+      <div>
+        {data.map((data) => {
+          return (
+            <div key={data.name}>
+              <p>{data.name}</p>
+              <button onClick={() => deleteProject(data.name)}>Delete</button>
+            </div>
+          )
+        })}
       </div>
-    </div>
+    </>
   )
 }
 
