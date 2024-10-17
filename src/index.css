@@ -55,10 +55,6 @@
     @apply cursor-pointer;
   }
 
-  nav:hover {
-    @apply text-[#4d4d4d];
-  }
-
   .form {
     @apply grid grid-cols-[repeat(2,1fr)] mt-[6.25rem] gap-[2.25rem] text-white;
   }
@@ -74,101 +70,8 @@
   .form input::placeholder {
     @apply text-[#8C8C8C];
   }
-}
 
-/* * .container {
-  border: 10px solid black;
-  min-height: 100vh;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+  .navbar nav.active {
+    @apply font-bold border-b-2 border-solid border-black;
+  }
 }
-
-.edit-section {
-  flex: 1;
-  margin-right: 20px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.view {
-  width: 40vw;
-  height: calc(40vw * 1.414);
-  max-width: 595px;
-  max-height: 842px;
-  border: 1px solid #000;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  overflow-y: auto;
-  word-wrap: break-word;
-}
-
-.view h1 {
-  text-align: center;
-}
-
-.personal-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 10px;
-  word-wrap: break-word;
-}
-
-a {
-  color: #000;
-}
-
-.education-section {
-  margin-top: 20px;
-}
-
-.education-detail {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.line {
-  width: 100%;
-  border: 0.001px solid gray;
-  opacity: 50%;
-  margin-block: 10px;
-}
-
-.form {
-  width: 50%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.flex {
-  display: flex;
-  gap: 25px;
-}
-
-.experience-detail {
-  margin-block: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.experience-detail div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.experience-detail ul {
-  margin-left: 30px;
-}
-
-.project-detail {
-  margin-bottom: 10px;
-} */

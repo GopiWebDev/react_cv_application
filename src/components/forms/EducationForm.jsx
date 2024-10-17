@@ -69,70 +69,70 @@ const EducationForm = ({ setData, data }) => {
 
   return (
     <>
-      <h2>Education</h2>
-      <div className='flex'>
-        <form action='' className='form' onSubmit={handleSubmit}>
-          <label htmlFor='universityName'>University Name</label>
-          <input
-            type='text'
-            name='universityName'
-            id='universityName'
-            onChange={handleInputChange}
-            value={universityName}
-            required
-          />
-          <label htmlFor='major'>Course Name</label>
-          <input
-            type='text'
-            name='major'
-            id='major'
-            onChange={handleInputChange}
-            value={major}
-            required
-          />
-          <label htmlFor='location'>Location</label>
-          <input
-            type='text'
-            name='location'
-            id='location'
-            onChange={handleInputChange}
-            value={location}
-            required
-          />
+      <form action='' className='form' onSubmit={handleSubmit}>
+        <label htmlFor='universityName'>University Name</label>
+        <input
+          type='text'
+          name='universityName'
+          id='universityName'
+          onChange={handleInputChange}
+          value={universityName}
+          required
+        />
 
-          <label htmlFor='startDate'>Start Date</label>
-          <input
-            type='date'
-            name='startDate'
-            id='startDate'
-            onChange={handleInputChange}
-            value={startDate}
-            required
-          />
-          <label htmlFor='endDate'>End Date</label>
-          <input
-            type='date'
-            name='endDate'
-            id='endDate'
-            onChange={handleInputChange}
-            value={endDate}
-            required
-          />
+        <label htmlFor='major'>Course Name</label>
+        <input
+          type='text'
+          name='major'
+          id='major'
+          onChange={handleInputChange}
+          value={major}
+          required
+        />
 
-          <input type='submit' value='Add Education' />
-        </form>
-        <div>
-          {data.map((data) => {
-            return (
-              <div key={data.universityName}>
-                <p>{data.universityName}</p>
-                <button onClick={() => deleteEducation(data.universityName)}>
-                  Delete
-                </button>
-              </div>
-            )
-          })}
-        </div>
+        <label htmlFor='location'>Location</label>
+        <input
+          type='text'
+          name='location'
+          id='location'
+          onChange={handleInputChange}
+          value={location}
+          required
+        />
+
+        <label htmlFor='startDate'>Start Date</label>
+        <input
+          type='date'
+          name='startDate'
+          id='startDate'
+          onChange={handleInputChange}
+          value={startDate}
+          required
+        />
+        
+        <label htmlFor='endDate'>End Date</label>
+        <input
+          type='date'
+          name='endDate'
+          id='endDate'
+          onChange={handleInputChange}
+          value={endDate}
+          required
+        />
+
+        <input type='submit' value='Add Education' />
+      </form>
+      <div>
+        {data.map((data) => {
+          return (
+            <div key={data.universityName}>
+              <p>{data.universityName}</p>
+              <button onClick={() => deleteEducation(data.universityName)}>
+                Delete
+              </button>
+            </div>
+          )
+        })}
       </div>
     </>
   )

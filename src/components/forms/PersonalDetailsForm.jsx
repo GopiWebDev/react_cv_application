@@ -9,7 +9,7 @@ const PersonalDetailsForm = ({ setData }) => {
   }
 
   return (
-    <div className='personal-edit'>
+    <>
       <form action='' className='form'>
         <label htmlFor='name'>Full name*</label>
         <input
@@ -56,7 +56,7 @@ const PersonalDetailsForm = ({ setData }) => {
           placeholder='enter your @username'
         />
       </form>
-    </div>
+    </>
   )
 }
 
