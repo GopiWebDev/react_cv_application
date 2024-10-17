@@ -56,22 +56,50 @@
   }
 
   .form {
-    @apply grid grid-cols-[repeat(2,1fr)] mt-[6.25rem] gap-[2.25rem] text-white;
+    @apply grid grid-cols-[repeat(2,1fr)] mt-[4rem] gap-[2.25rem] text-white overflow-hidden p-2 items-center;
   }
 
   .form label {
-    @apply text-[1.875rem] text-right font-Inter_regular;
+    @apply text-[1.25rem] text-center font-Inter_regular;
   }
 
   .form input {
-    @apply w-[16.875rem] h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] ml-[2.5rem] pl-3;
+    @apply h-[3rem] bg-[#4d4d4d] rounded-[0.625rem] text-[1.25rem] px-3;
   }
 
   .form input::placeholder {
     @apply text-[#8C8C8C];
   }
 
+  .button-div {
+    @apply col-span-2 flex justify-center mt-4;
+  }
+
+  .button-div input {
+    @apply px-5 bg-[#7862F8];
+  }
+
+  .button-div input:hover {
+    @apply cursor-pointer bg-[#8873FF];
+  }
+
   .navbar nav.active {
     @apply font-bold border-b-2 border-solid border-black;
+  }
+
+  .existing-data {
+    @apply w-[33rem] bg-[#D9D9D9] text-[1rem] mx-auto mt-[1.5rem] rounded-[1rem] flex flex-col items-center gap-2 py-2;
+  }
+
+  .existing-data div {
+    @apply w-full grid grid-cols-[1fr,0.5fr] justify-center items-center;
+  }
+
+  .existing-data div p {
+    @apply text-center;
+  }
+
+  .existing-data div button {
+    @apply text-red-700;
   }
 }

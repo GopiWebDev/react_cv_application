@@ -70,7 +70,7 @@ const EducationForm = ({ setData, data }) => {
   return (
     <>
       <form action='' className='form' onSubmit={handleSubmit}>
-        <label htmlFor='universityName'>University Name</label>
+        <label htmlFor='universityName'>University*</label>
         <input
           type='text'
           name='universityName'
@@ -78,9 +78,10 @@ const EducationForm = ({ setData, data }) => {
           onChange={handleInputChange}
           value={universityName}
           required
+          placeholder='name of university'
         />
 
-        <label htmlFor='major'>Course Name</label>
+        <label htmlFor='major'>Course Name*</label>
         <input
           type='text'
           name='major'
@@ -88,9 +89,10 @@ const EducationForm = ({ setData, data }) => {
           onChange={handleInputChange}
           value={major}
           required
+          placeholder='major of study'
         />
 
-        <label htmlFor='location'>Location</label>
+        <label htmlFor='location'>Location*</label>
         <input
           type='text'
           name='location'
@@ -98,9 +100,10 @@ const EducationForm = ({ setData, data }) => {
           onChange={handleInputChange}
           value={location}
           required
+          placeholder='location of study'
         />
 
-        <label htmlFor='startDate'>Start Date</label>
+        <label htmlFor='startDate'>Start Date*</label>
         <input
           type='date'
           name='startDate'
@@ -109,8 +112,8 @@ const EducationForm = ({ setData, data }) => {
           value={startDate}
           required
         />
-        
-        <label htmlFor='endDate'>End Date</label>
+
+        <label htmlFor='endDate'>End Date*</label>
         <input
           type='date'
           name='endDate'
@@ -119,21 +122,24 @@ const EducationForm = ({ setData, data }) => {
           value={endDate}
           required
         />
-
-        <input type='submit' value='Add Education' />
+        <div className='button-div'>
+          <input type='submit' value='Add Education' />
+        </div>
       </form>
-      <div>
-        {data.map((data) => {
-          return (
-            <div key={data.universityName}>
-              <p>{data.universityName}</p>
-              <button onClick={() => deleteEducation(data.universityName)}>
-                Delete
-              </button>
-            </div>
-          )
-        })}
-      </div>
+      {data.length > 0 && (
+        <div className='existing-data'>
+          {data.map((data) => {
+            return (
+              <div key={data.universityName}>
+                <p>{data.universityName}</p>
+                <button onClick={() => deleteEducation(data.universityName)}>
+                  Delete
+                </button>
+              </div>
+            )
+          })}
+        </div>
+      )}
     </>
   )
 }
