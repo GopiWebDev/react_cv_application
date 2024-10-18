@@ -128,6 +128,7 @@ const EducationForm = ({ setData, data }) => {
       </form>
       {data.length > 0 && (
         <div className='existing-data'>
+          <h4>All Educations</h4>
           {data.map((data) => {
             return (
               <div key={data.universityName}>

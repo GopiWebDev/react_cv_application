@@ -97,26 +97,6 @@ const ProjectsForm = ({ setData, data }) => {
         />
 
         <label htmlFor='tools'>Tech Stack*</label>
-        {tools.length > 0 ? (
-          <div>
-            <h3>Added Stacks</h3>
-            <ul>
-              {tools &&
-                tools.map((tool) => {
-                  return (
-                    <div key={tool}>
-                      <li>{tool}</li>
-                      <button type='button' onClick={() => deleteTool(tool)}>
-                        Delete
-                      </button>
-                    </div>
-                  )
-                })}
-            </ul>
-          </div>
-        ) : (
-          ''
-        )}
         <span>
           <input
             className='input-with-btn'
@@ -131,7 +111,26 @@ const ProjectsForm = ({ setData, data }) => {
             +
           </button>
         </span>
-
+        {tools.length > 0 ? (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Stacks</h4>
+            <ul className='my-3'>
+              {tools &&
+                tools.map((tool, i) => {
+                  return (
+                    <div key={`${tool}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${tool}`}</li>
+                      <button type='button' onClick={() => deleteTool(tool)}>
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        ) : (
+          ''
+        )}
         <label htmlFor='descriptions'>Descriptions*</label>
         <span>
           <input
@@ -156,7 +155,7 @@ const ProjectsForm = ({ setData, data }) => {
                 description.map((desc, i) => {
                   return (
                     <div key={`${desc}-${i}`} className='flex justify-between'>
-                      <li>{`${i}. ${desc}`}</li>
+                      <li>{`${i + 1}. ${desc}`}</li>
                       <button
                         type='button'
                         onClick={() => deleteDescription(desc)}
@@ -176,14 +175,21 @@ const ProjectsForm = ({ setData, data }) => {
         </div>
       </form>
       <div>
-        {data.map((data) => {
-          return (
-            <div key={data.name}>
-              <p>{data.name}</p>
-              <button onClick={() => deleteProject(data.name)}>Delete</button>
-            </div>
-          )
-        })}
+        {data.length > 0 && (
+          <div className='existing-data'>
+            <h4>All Projects</h4>
+            {data.map((data) => {
+              return (
+                <div key={data.name}>
+                  <p>{data.name}</p>
+                  <button onClick={() => deleteProject(data.name)}>
+                    Delete
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
     </>
   )
