@@ -111,7 +111,7 @@ const ProjectsForm = ({ setData, data }) => {
             +
           </button>
         </span>
-        {tools.length > 0 ? (
+        {tools.length > 0 && (
           <div className='descriptions'>
             <h4 className='text-[1.2rem]'>Added Stacks</h4>
             <ul className='my-3'>
@@ -128,9 +128,8 @@ const ProjectsForm = ({ setData, data }) => {
                 })}
             </ul>
           </div>
-        ) : (
-          ''
         )}
+
         <label htmlFor='descriptions'>Descriptions*</label>
         <span>
           <input

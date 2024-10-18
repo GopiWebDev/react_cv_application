@@ -112,178 +112,159 @@ const SkillsForm = ({ setData }) => {
   }
 
   return (
-    <div>
-      <h2>Skills</h2>
-      <div className='flex'>
-        <form action='' className='form' onSubmit={handleSubmit}>
-          <label htmlFor='languages'>Languages</label>
-          {languages.length > 0 ? (
-            <div>
-              <h3>Added Languages</h3>
-              <ul>
-                {languages &&
-                  languages.map((lang) => {
-                    return (
-                      <div key={lang}>
-                        <li>{lang}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteLanguage(lang)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='languages'
-              id='languages'
-              value={langInput}
-              onChange={handleInputChange}
-            />
-            <button
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-              onClick={handleLang}
-            >
-              +
-            </button>
-          </span>
+    <>
+      {/* Languages */}
+      <form action='' className='form' onSubmit={handleSubmit}>
+        <label htmlFor='languages'>Languages*</label>
+        <span>
+          <input
+            className='input-with-btn'
+            type='text'
+            name='languages'
+            id='languages'
+            value={langInput}
+            onChange={handleInputChange}
+            placeholder='add one by one'
+          />
+          <button type='button' onClick={handleLang}>
+            +
+          </button>
+        </span>
+        {languages.length > 0 && (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Languages</h4>
+            <ul className='my-3'>
+              {languages &&
+                languages.map((lang, i) => {
+                  return (
+                    <div key={`${lang}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${lang}`}</li>
+                      <button
+                        type='button'
+                        onClick={() => deleteLanguage(lang)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        )}
 
-          <label htmlFor='frameworks'>Frameworks</label>
-          {frameworks.length > 0 ? (
-            <div>
-              <h3>Added Frameworks</h3>
-              <ul>
-                {frameworks &&
-                  frameworks.map((fram) => {
-                    return (
-                      <div key={fram}>
-                        <li>{fram}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteFramework(fram)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='frameworks'
-              id='frameworks'
-              value={frameInput}
-              onChange={handleInputChange}
-            />
-            <button
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-              onClick={handleFram}
-            >
-              +
-            </button>
-          </span>
+        {/* Frameworks */}
+        <label htmlFor='frameworks'>Frameworks*</label>
+        <span>
+          <input
+            type='text'
+            name='frameworks'
+            id='frameworks'
+            value={frameInput}
+            onChange={handleInputChange}
+            className='input-with-btn'
+            placeholder='add one by one'
+          />
+          <button type='button' onClick={handleFram}>
+            +
+          </button>
+        </span>
+        {frameworks.length > 0 && (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Frameworks</h4>
+            <ul className='my-3'>
+              {frameworks &&
+                frameworks.map((fram, i) => {
+                  return (
+                    <div key={`${fram}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${fram}`}</li>
+                      <button
+                        type='button'
+                        onClick={() => deleteFramework(fram)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        )}
 
-          <label htmlFor='devTools'>Developer Tools</label>
-          {devTools.length > 0 ? (
-            <div>
-              <h3>Added Developer Tools</h3>
-              <ul>
-                {devTools &&
-                  devTools.map((tool) => {
-                    return (
-                      <div key={tool}>
-                        <li>{tool}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteDevTool(tool)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='devTools'
-              id='devTools'
-              value={devToolsInput}
-              onChange={handleInputChange}
-            />
-            <button
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-              onClick={handleDevTools}
-            >
-              +
-            </button>
-          </span>
+        {/* Developer Tools */}
+        <label htmlFor='devTools'>Developer Tools*</label>
+        <span>
+          <input
+            type='text'
+            name='devTools'
+            id='devTools'
+            value={devToolsInput}
+            onChange={handleInputChange}
+            className='input-with-btn'
+            placeholder='add one by one'
+          />
+          <button type='button' onClick={handleDevTools}>
+            +
+          </button>
+        </span>
+        {devTools.length > 0 && (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Developer Tools</h4>
+            <ul className='my-3'>
+              {devTools &&
+                devTools.map((tool, i) => {
+                  return (
+                    <div key={`${tool}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${tool}`}</li>
+                      <button type='button' onClick={() => deleteDevTool(tool)}>
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        )}
 
-          <label htmlFor='libraries'>Libraries</label>
-          {libraries.length > 0 ? (
-            <div>
-              <h3>Added Libraries</h3>
-              <ul>
-                {libraries &&
-                  libraries.map((lib) => {
-                    return (
-                      <div key={lib}>
-                        <li>{lib}</li>
-                        <button
-                          type='button'
-                          onClick={() => deleteLibrary(lib)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    )
-                  })}
-              </ul>
-            </div>
-          ) : (
-            ''
-          )}
-          <span>
-            <input
-              type='text'
-              name='libraries'
-              id='libraries'
-              value={libInput}
-              onChange={handleInputChange}
-            />
-            <button
-              type='button'
-              style={{ width: '20px', cursor: 'pointer' }}
-              onClick={handleLib}
-            >
-              +
-            </button>
-          </span>
+        {/* Libraries */}
+        <label htmlFor='libraries'>Libraries*</label>
+        <span>
+          <input
+            type='text'
+            name='libraries'
+            id='libraries'
+            value={libInput}
+            onChange={handleInputChange}
+            className='input-with-btn'
+            placeholder='add one by one'
+          />
+          <button type='button' onClick={handleLib}>
+            +
+          </button>
+        </span>
+        {libraries.length > 0 && (
+          <div className='descriptions'>
+            <h4 className='text-[1.2rem]'>Added Libraries</h4>
+            <ul className='my-3'>
+              {libraries &&
+                libraries.map((lib, i) => {
+                  return (
+                    <div key={`${lib}-${i}`} className='flex justify-between'>
+                      <li>{`${i + 1}. ${lib}`}</li>
+                      <button type='button' onClick={() => deleteLibrary(lib)}>
+                        Delete
+                      </button>
+                    </div>
+                  )
+                })}
+            </ul>
+          </div>
+        )}
 
-          <input type='submit' />
-        </form>
-      </div>
-    </div>
+        <div className='button-div'>
+          <input type='submit' value='Add Skills' />
+        </div>
+      </form>
+    </>
   )
 }
 
