@@ -113,7 +113,6 @@ const SkillsForm = ({ setData }) => {
 
   return (
     <>
-      {/* Languages */}
       <form action='' className='form' onSubmit={handleSubmit}>
         <label htmlFor='languages'>Languages*</label>
         <span>

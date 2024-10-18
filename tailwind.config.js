@@ -5,6 +5,7 @@ export default {
     fontFamily: {
       CMU: ['CMU', 'sans-serif'],
       CMU_BOLD: ['CMU_BOLD', 'sans-serif'],
+      Nordique: ['Nordique', 'sans-serif'],
       Inter_regular: ['Inter-regular', 'sans-serif'],
       Inter_medium: ['Inter-medium', 'sans-serif'],
       Inter_semibold: ['Inter-semibold', 'sans-serif'],

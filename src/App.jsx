@@ -115,9 +115,9 @@ const App = () => {
 
   return (
     <div className=' w-full '>
-      <div className='wrapper px-[100px] max-w-[1440px] mx-auto'>
+      <div className='wrapper '>
         <Header />
-        <main className='flex mt-[3.25rem] justify-between overflow-hidden mb-[5rem]'>
+        <main>
           <EditSection data={data} setData={setData} />
           <ViewSection data={data} />
         </main>

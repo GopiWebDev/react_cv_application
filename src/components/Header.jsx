@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className='h-[8.6875rem] flex justify-between items-center'>
+    <header className='h-[8.6875rem] flex justify-between items-center min-w-[280px]'>
       <h1 className='text-white text-[3.75rem] font-Nordique self-start'>
         resume
       </h1>

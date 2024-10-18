@@ -9,13 +9,9 @@ import SkillsForm from './forms/SkillsForm'
 const EditSection = ({ data, setData }) => {
   const [selectedForm, setSelectedForm] = useState('personal')
 
-  const handleFormChange = (e) => {
-    setSelectedForm(e.target.value)
-  }
-
   return (
-    <div className='edit-section w-[37.3125rem] bg-[#2E2E2E] rounded-[3.125rem] px-[2.5rem] py-[2.20rem] font-Inter_medium'>
-      <div className='navbar w-[33rem] h-[3.75rem] bg-[#D9D9D9] flex justify-evenly items-center text-[1.1rem] mx-auto rounded-[1.5rem]'>
+    <div className='edit-section '>
+      <div className='navbar'>
         <nav
           onClick={() => setSelectedForm('personal')}
           className={selectedForm === 'personal' ? 'active' : ''}
@@ -48,27 +44,23 @@ const EditSection = ({ data, setData }) => {
         </nav>
       </div>
 
-      <div>
-        {selectedForm === 'personal' && (
-          <PersonalDetailsForm setData={setData} />
-        )}
+      {selectedForm === 'personal' && <PersonalDetailsForm setData={setData} />}
 
-        {selectedForm === 'education' && (
-          <EducationForm setData={setData} data={data.education} />
-        )}
+      {selectedForm === 'education' && (
+        <EducationForm setData={setData} data={data.education} />
+      )}
 
-        {selectedForm === 'experience' && (
-          <ExperienceForm setData={setData} data={data.experiences} />
-        )}
+      {selectedForm === 'experience' && (
+        <ExperienceForm setData={setData} data={data.experiences} />
+      )}
 
-        {selectedForm === 'projects' && (
-          <ProjectsForm setData={setData} data={data.projects} />
-        )}
+      {selectedForm === 'projects' && (
+        <ProjectsForm setData={setData} data={data.projects} />
+      )}
 
-        {selectedForm === 'skills' && (
-          <SkillsForm setData={setData} data={data.skills} />
-        )}
-      </div>
+      {selectedForm === 'skills' && (
+        <SkillsForm setData={setData} data={data.skills} />
+      )}
     </div>
   )
 }
