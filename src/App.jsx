@@ -65,7 +65,6 @@ const App = () => {
           'Visualized GitHub data to show collaboration',
           'Used Celery and Redis for asynchronous tasks',
         ],
-        repoLink: 'https://github.com',
       },
       {
         name: 'Simple Paintball',
@@ -76,7 +75,6 @@ const App = () => {
           'Implemented continuous delivery using TravisCI to build the plugin upon new a release',
           'Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin',
         ],
-        repoLink: 'https://github.com',
       },
     ],
     skills: {
@@ -112,16 +110,6 @@ const App = () => {
     },
   })
 
-  const printDiv = () => {
-    const content = document.querySelector('.view-section').innerHTML
-    const originalContent = document.body.innerHTML
-
-    document.body.innerHTML = content
-    window.print()
-    document.body.innerHTML = originalContent
-    window.location.reload()
-  }
-
   return (
     <div className=' w-full '>
       <div className='wrapper '>
@@ -130,9 +118,6 @@ const App = () => {
           <EditSection data={data} setData={setData} />
           <ViewSection data={data} />
         </main>
-        <button onClick={printDiv} className='text-white text-[2rem]'>
-          Print
-        </button>
       </div>
     </div>
   )

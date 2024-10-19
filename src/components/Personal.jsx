@@ -5,7 +5,7 @@ const Personal = ({ data }) => {
       <h1 className='text-center font-CMU_BOLD text-[1.75rem] tracking-tighter '>
         {name}
       </h1>
-      <div className='flex justify-center gap-[10px] text-[12px]'>
+      <div className='flex justify-center flex-wrap gap-[10px] text-[12px] w-full'>
         <span>{phone}</span>
         <span>|</span>
         <span>

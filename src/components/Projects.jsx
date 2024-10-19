@@ -1,5 +1,5 @@
 const ProjectsData = ({ data }) => {
-  const { name, tools, description, repoLink } = data
+  const { name, tools, description } = data
 
   return (
     <div className='project-detail'>
