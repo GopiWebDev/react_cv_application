@@ -27,26 +27,6 @@
   src: url('../src/assets/fonts/inter-medium.woff2');
 }
 
-@font-face {
-  font-family: 'Inter-semibold';
-  src: url('../src/assets/fonts/inter-semibold.woff2');
-}
-
-@font-face {
-  font-family: 'Inter-bold';
-  src: url('../src/assets/fonts/inter-bold.woff2');
-}
-
-@font-face {
-  font-family: 'Inter-extrabold';
-  src: url('../src/assets/fonts/inter-extrabold.woff2');
-}
-
-@font-face {
-  font-family: 'Inter-black';
-  src: url('../src/assets/fonts/inter-black.woff2');
-}
-
 @layer components {
   body {
     @apply bg-[#202020] mx-auto;
@@ -65,7 +45,7 @@
   }
 
   .view-section {
-    @apply border border-solid min-w-[210px] max-w-[36rem] w-full  aspect-[1/1.141] max-h-[50.9375rem] bg-white;
+    @apply border border-solid min-w-[210px] max-w-[36rem] w-full aspect-[1/1.141] max-h-[50.9375rem] bg-white font-CMU px-8 py-4 overflow-y-auto;
   }
 
   .navbar {
@@ -81,7 +61,7 @@
   }
 
   .form {
-    @apply grid grid-cols-[repeat(2,1fr)] mt-[3rem] gap-[2.25rem] text-white overflow-hidden p-2 items-center;
+    @apply grid grid-cols-[.6fr,1fr] mt-[3rem] gap-[2.25rem] text-white overflow-hidden p-2 items-center;
   }
 
   .form label {
@@ -101,7 +81,7 @@
   }
 
   .button-div input {
-    @apply px-5 bg-[#7862F8];
+    @apply px-5 bg-[#7862F8] max-w-[200px];
   }
 
   .button-div input:hover {
@@ -159,14 +139,6 @@
       @apply px-[50px];
     }
 
-    /* .edit-section {
-      @apply w-[30rem];
-    } */
-
-    /* .navbar {
-      @apply w-[25rem];
-    } */
-
     .navbar nav {
       @apply text-[1rem];
     }
@@ -205,6 +177,21 @@
 
     .descriptions {
       @apply col-span-1;
+    }
+  }
+
+  @media print {
+    .view-section,
+    .view-section * {
+      @apply visible;
+    }
+
+    .view-section {
+      @apply absolute left-5 top-0 w-[34rem] aspect-[1/1.141] h-auto m-5;
+    }
+
+    @page {
+      size: A4;
     }
   }
 }

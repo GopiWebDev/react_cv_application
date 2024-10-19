@@ -104,7 +104,6 @@ const App = () => {
         'TravisCI',
         ' Google Cloud Platform',
         'VS Code',
-        'Visual Studio',
         'PyCharm',
         'IntelliJ',
         'Eclipse',
@@ -112,6 +111,16 @@ const App = () => {
       libraries: ['pandas', 'NumPy', 'Matplotlib'],
     },
   })
+
+  const printDiv = () => {
+    const content = document.querySelector('.view-section').innerHTML
+    const originalContent = document.body.innerHTML
+
+    document.body.innerHTML = content
+    window.print()
+    document.body.innerHTML = originalContent
+    window.location.reload()
+  }
 
   return (
     <div className=' w-full '>
@@ -121,6 +130,9 @@ const App = () => {
           <EditSection data={data} setData={setData} />
           <ViewSection data={data} />
         </main>
+        <button onClick={printDiv} className='text-white text-[2rem]'>
+          Print
+        </button>
       </div>
     </div>
   )

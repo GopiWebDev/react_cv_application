@@ -33,14 +33,14 @@ const EducationData = ({ data }) => {
   const formatDate = formatDateRange([startDate, endDate])
 
   return (
-    <div className='education-detail'>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <p>{universityName}</p>
-        <p>{location}</p>
+    <div className='mb-[5px]'>
+      <div className='flex justify-between'>
+        <p className='font-CMU_BOLD '>{universityName}</p>
+        <p className='text-[14px]'>{location}</p>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <p>{major}</p>
-        <p style={{ width: '150px' }}>{formatDate}</p>
+      <div className='flex justify-between'>
+        <p className='text-[12px]'>{major}</p>
+        <p className='text-[12px]'>{formatDate}</p>
       </div>
     </div>
   )
@@ -48,10 +48,11 @@ const EducationData = ({ data }) => {
 
 const Education = ({ data }) => {
   return (
-    <div className='education-section'>
-      <h3>Education</h3>
-      <div className='line'></div>
-      <div className='education-details'>
+    <div>
+      <h3 className='text-[1rem] font-CMU_BOLD border-b-2 mb-[5px] border-black'>
+        Education
+      </h3>
+      <div>
         {data.map((data) => {
           return <EducationData key={data.universityName} data={data} />
         })}

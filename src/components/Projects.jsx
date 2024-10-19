@@ -1,22 +1,31 @@
 const ProjectsData = ({ data }) => {
   const { name, tools, description, repoLink } = data
+
   return (
     <div className='project-detail'>
-      <div style={{ display: 'flex' }}>
-        <a href={repoLink}>{name} | </a>
-        <div style={{ display: 'flex' }}>
+      <div className='flex items-end'>
+        <span className='font-CMU_BOLD mr-[5px]'>{name} |</span>
+        <div className='flex items-end gap-[3px]'>
           {tools &&
             tools.map((tool) => {
-              if (tool) return <p key={tool}> {tool} | </p>
+              return (
+                <span key={tool} className='text-[14px]'>
+                  {tool},
+                </span>
+              )
             })}
         </div>
       </div>
 
-      <ul>
+      <ul className='pl-[30px]'>
         {description &&
           description.map((des) => {
             if (!des) return
-            return <li key={des}>{des}</li>
+            return (
+              <li className='text-[12px] list-disc' key={des}>
+                {des}
+              </li>
+            )
           })}
       </ul>
     </div>
@@ -25,9 +34,10 @@ const ProjectsData = ({ data }) => {
 
 const Projects = ({ data }) => {
   return (
-    <div className='projects-section'>
-      <h3>Projects</h3>
-      <div className='line'></div>
+    <div className='projects-section mb-[5px]'>
+      <h3 className='font-CMU_BOLD border-b-2 mb-[5px] border-black'>
+        Projects
+      </h3>
       <div>
         {data.map((dat) => {
           return <ProjectsData key={dat.name} data={dat} />

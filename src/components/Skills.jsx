@@ -2,34 +2,56 @@ const SkillData = ({ data }) => {
   const { languages, frameworks, devTools, libraries } = data
 
   return (
-    <div className='skill-data'>
-      <p>
+    <div className='skill-data flex flex-col w-full'>
+      <span>
+        <span className='font-CMU_BOLD mr-[5px] text-[14px]'>Languages: </span>
         {languages &&
           languages.map((lang) => {
-            return <span key={lang}>{lang}</span>
+            return (
+              <span className='text-[12px] mr-[3px]' key={lang}>
+                {lang},
+              </span>
+            )
           })}
-      </p>
+      </span>
 
-      <p>
+      <span>
+        <span className='font-CMU_BOLD mr-[5px] text-[14px]'>Frameworks: </span>
         {frameworks &&
           frameworks.map((fram) => {
-            return <span key={fram}>{fram}</span>
+            return (
+              <span className='text-[12px] mr-[3px]' key={fram}>
+                {fram},
+              </span>
+            )
           })}
-      </p>
+      </span>
 
-      <p>
+      <span className=' flex flex-wrap mb-[2px]'>
+        <span className='font-CMU_BOLD mr-[5px] text-[14px]'>
+          Developer Tools:
+        </span>
         {devTools &&
           devTools.map((tool) => {
-            return <span key={tool}>{tool}</span>
+            return (
+              <span className='text-[12px] mr-[3px]' key={tool}>
+                {tool},
+              </span>
+            )
           })}
-      </p>
+      </span>
 
-      <p>
-          {libraries &&
+      <span className=' flex flex-wrap'>
+        <span className='font-CMU_BOLD mr-[5px] text-[14px]'>Libraries:</span>
+        {libraries &&
           libraries.map((lib) => {
-            return <span key={lib}>{lib}</span>
+            return (
+              <span className='text-[12px] mr-[3px]' key={lib}>
+                {lib},
+              </span>
+            )
           })}
-      </p>
+      </span>
     </div>
   )
 }
@@ -37,7 +59,9 @@ const SkillData = ({ data }) => {
 const Skills = ({ data }) => {
   return (
     <div>
-      <h2>Technical Skills</h2>
+      <h3 className='text-[1rem] font-CMU_BOLD border-b-2 mb-[5px] border-black'>
+        Technical Skills
+      </h3>
       <div>{<SkillData data={data} />}</div>
     </div>
   )
