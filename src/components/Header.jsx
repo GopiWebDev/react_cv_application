@@ -1,3 +1,6 @@
+import printerIcon from '../assets/icons/printer-icon.svg'
+import gitIcon from '../assets/icons/openmoji_github.svg'
+
 const Header = () => {
   const printDiv = () => {
     const content = document.querySelector('.view-section').innerHTML
@@ -17,7 +20,7 @@ const Header = () => {
       <img
         onClick={printDiv}
         className='w-[50px] cursor-pointer'
-        src='../src/assets/icons/printer-icon.svg'
+        src={printerIcon}
         alt=''
       />
       <a
@@ -25,7 +28,7 @@ const Header = () => {
         target='_blank'
       >
         <img
-          src='../src/assets/icons/openmoji_github.svg'
+          src={gitIcon}
           alt=''
           className='h-[4rem] w-[4rem] cursor-pointer'
         />
