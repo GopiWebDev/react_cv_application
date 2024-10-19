@@ -44,7 +44,9 @@ const EditSection = ({ data, setData }) => {
         </nav>
       </div>
 
-      {selectedForm === 'personal' && <PersonalDetailsForm setData={setData} />}
+      {selectedForm === 'personal' && (
+        <PersonalDetailsForm setData={setData} data={data.personal} />
+      )}
 
       {selectedForm === 'education' && (
         <EducationForm setData={setData} data={data.education} />

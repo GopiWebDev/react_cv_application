@@ -1,11 +1,50 @@
-const PersonalDetailsForm = ({ setData }) => {
+const PersonalDetailsForm = ({ setData, data }) => {
   const handleInputChange = (e) => {
     e.preventDefault()
-    const { name, value } = e.target
-    setData((prev) => ({
-      ...prev,
-      personal: { ...prev.personal, [name]: value },
-    }))
+    let { name, value } = e.target
+
+    setData((prev) => {
+      let updatedPersonal = { ...prev.personal }
+
+      const newValue = value.trim() === '' ? getDefaultValue(name) : value
+
+      switch (name) {
+        case 'name':
+          updatedPersonal.name = newValue
+          break
+        case 'phone':
+          updatedPersonal.phone = newValue
+          break
+        case 'email':
+          updatedPersonal.email = newValue
+          break
+        case 'linkedin':
+          updatedPersonal.linkedin = newValue
+          break
+        case 'github':
+          updatedPersonal.github = newValue
+          break
+        default:
+          break
+      }
+
+      return {
+        ...prev,
+        personal: updatedPersonal,
+      }
+    })
+  }
+
+  const getDefaultValue = (fieldName) => {
+    const defaults = {
+      name: 'Jake Ryan',
+      phone: '123-456-789',
+      email: 'jake@su.edu.in',
+      linkedin: 'jake',
+      github: 'jake',
+    }
+
+    return defaults[fieldName] || ''
   }
 
   return (
